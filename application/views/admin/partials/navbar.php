@@ -5,10 +5,10 @@
 
             <!-- Dropdown Structure -->
             <ul id="laporan_DD" class="dropdown-content">
-                <li><a href="sales_order" class="">Semua Laporan</a></li>
-                <li><a href="production_order" class="">Sedang Dikerjakan</a></li>
-                <li><a href="production_order" class="">Menunggu Konfirmasi</a></li>
-                <li><a href="production_order" class="">Selesai</a></li>
+                <li><a href="<?php echo base_url('admin/laporan/show_laporan_semua'); ?>" class="">Semua Laporan</a></li>
+                <li><a href="<?php echo base_url('admin/laporan/show_laporan_dk'); ?>" class="">Sedang Dikerjakan</a></li>
+                <li><a href="<?php echo base_url('admin/laporan/show_laporan_mk'); ?>" class="">Menunggu Konfirmasi</a></li>
+                <li><a href="<?php echo base_url('admin/laporan/show_laporan_s'); ?>" class="">Selesai</a></li>
             </ul>
 
             <ul id="jenis-masalah_DD" class="dropdown-content ">

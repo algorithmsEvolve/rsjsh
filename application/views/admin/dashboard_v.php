@@ -72,12 +72,12 @@
             </div>
         </div>
         <div class="divider"></div>
-        <div class="section">
+        <div class="section center">
             <div class="row">
-                <div class="col s2"></div>
+                <div class="col s1"></div>
                 <div class="col s4 m3">
 
-                    <div class="card">
+                    <div class="card yellow z-depth-4">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img class="activator" src="<?php echo base_url('assets/img/furnitur.png'); ?>">
                         </div>
@@ -93,12 +93,12 @@
                 </div>
                 <div class="col s4 m3">
 
-                    <div class="card">
+                    <div class="card blue z-depth-4">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img class="activator" src="<?php echo base_url('assets/img/listrik.png'); ?>">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Listrik<i class="material-icons right">more_vert</i></span>
+                            <span class="card-title activator white-text text-darken-4">Listrik<i class="material-icons right">more_vert</i></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
@@ -109,15 +109,15 @@
                 </div>
                 <div class="col s4 m3">
 
-                    <div class="card">
+                    <div class="card red z-depth-4 darken-2">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img class="activator" src="<?php echo base_url('assets/img/air.png'); ?>">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Air<i class="material-icons right">more_vert</i></span>
+                            <span class="card-title activator white-text text-darken-4">Air<i class="material-icons right">more_vert</i></span>
                         </div>
                         <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <span class="card-title white-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
                             <p>Here is some more information about this product that is only revealed once clicked on.</p>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                 <div class="col s2"></div>
                 <div class="col s4 m3">
 
-                    <div class="card">
+                    <div class="card z-depth-4">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img class="activator" src="<?php echo base_url('assets/img/peralatan.png'); ?>">
                         </div>
@@ -144,12 +144,12 @@
                 </div>
                 <div class="col s4 m3">
 
-                    <div class="card">
+                    <div class="card green z-depth-4">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img class="activator" src="<?php echo base_url('assets/img/bangunan.png'); ?>">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Bangunan<i class="material-icons right">more_vert</i></span>
+                            <span class="card-title activator white-text text-darken-4">Bangunan<i class="material-icons right">more_vert</i></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>

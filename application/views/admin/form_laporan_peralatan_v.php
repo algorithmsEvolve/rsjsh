@@ -21,33 +21,34 @@
         </div>
 
         <label class="row">
-            <form action="<?php echo base_url('admin/buat_laporan/proses_input'); ?>" method="POST" class="col s12">
+            <form action="<?php echo base_url('admin/buat_laporan/proses_input_peralatan'); ?>" method="POST" class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="ruangan" type="text" class="validate">
+                        <input type="text" name="pelapor" value="Viki Hardiyanto" hidden>
+                        <input id="ruangan" type="text" class="validate" name="ruangan">
                         <label for="ruangan">Ruangan</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="bagian" type="text" class="validate">
+                        <input id="bagian" type="text" class="validate" name="bagian">
                         <label for="bagian">Bagian</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="pilih_keluhan" type="text" class="validate" placeholder="Nama Perlatan">
-                        <label for="pilih_keluhan">Pilih Keluhan</label>
+                        <input id="pilih_keluhan" type="text" class="validate" name="nama_peralatan">
+                        <label for="pilih_keluhan">Nama Peralatan</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
                         <label>
-                            <input type="radio" class="with-gap" name="group-1">
+                            <input type="radio" class="with-gap" name="group-1" value="Rusak Total">
                             <span>Rusak Total</span>
                         </label>
                     </div>
                     <div class="input-field col s6">
                         <label>
-                            <input type="radio" class="with-gap" name="group-1">
+                            <input type="radio" class="with-gap" name="group-1" value="Perlu Maintenance/Pengecekan">
                             <span>Perlu Maintenance/Pengecekan</span>
                         </label>
                     </div>
@@ -56,7 +57,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">mode_edit</i>
-                        <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                        <textarea id="icon_prefix2" class="materialize-textarea" name="tambahan"></textarea>
                         <label for="icon_prefix2">Tambahan..</label>
                     </div>
                 </div>
@@ -69,6 +70,26 @@
 
     <!-- js -->
     <?php $this->load->view('admin/partials/js.php') ?>
+    <?php
+    $id = $this->input->get('id');
+    if ($id == 1) : ?>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Input Berhasil</h4>
+                <p>Laporan Peralatan berhasil di input.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function() {
+                $('#modal1').modal();
+                $('#modal1').modal('open');
+            });
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>
