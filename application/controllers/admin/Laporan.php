@@ -1,44 +1,19 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-// Don't forget include/define REST_Controller path
-
-/**
- *
- * Controller Laporan
- *
- * This controller for ...
- *
- * @package   CodeIgniter
- * @category  Controller CI
- * @author    Setiawan Jodi <jodisetiawan@fisip-untirta.ac.id>
- * @author    Raul Guerrero <r.g.c@me.com>
- * @link      https://github.com/setdjod/myci-extension/
- * @param     ...
- * @return    ...
- *
- */
 
 class Laporan extends CI_Controller
 {
-    
+
   public function __construct()
   {
     parent::__construct();
     $this->load->model('laporan_model');
-  }
-
-  function semua_laporan()
-  {
-
-  }
-
-  function dikerjakan()
-  {
-
+    $this->load->model('komentar_model');
   }
 
   function show_laporan_mk()
   {
+    $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
     $parameter = 'Menunggu Konfirmasi';
     $data['title'] = "Laporan Menunggu Konfirmasi";
     $data['laporan_air'] = $this->laporan_model->get_laporan_air($parameter);
@@ -51,6 +26,7 @@ class Laporan extends CI_Controller
 
   function show_laporan_dk()
   {
+    $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
     $parameter = 'Sedang Dikerjakan';
     $data['title'] = "Laporan Sedang Dikerjakan";
     $data['laporan_air'] = $this->laporan_model->get_laporan_air($parameter);
@@ -63,6 +39,7 @@ class Laporan extends CI_Controller
 
   function show_laporan_s()
   {
+    $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
     $parameter = 'Selesai';
     $data['title'] = "Laporan Selesai";
     $data['laporan_air'] = $this->laporan_model->get_laporan_air($parameter);
@@ -75,6 +52,7 @@ class Laporan extends CI_Controller
 
   function show_laporan_semua()
   {
+    $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
     //laporan selesai
     $parameter_s = 'Selesai';
     $data['laporan_air_s'] = $this->laporan_model->get_laporan_air($parameter_s);
@@ -102,11 +80,15 @@ class Laporan extends CI_Controller
     $this->load->view('admin/show_semua_laporan_v.php', $data);
   }
 
-  function selesai()
+  function show_laporan()
   {
-
+    $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $nomor_laporan = $this->input->get('id');
+    $jenis_laporan = $this->input->get('jenis_laporan');
+    $data['laporan'] = $this->laporan_model->get_laporan($jenis_laporan, $nomor_laporan);
+    $data['pesan'] = $this->komentar_model->get_pesan($nomor_laporan);
+    $this->load->view('admin/show_detail_laporan_v.php', $data);
   }
-
 }
 
 

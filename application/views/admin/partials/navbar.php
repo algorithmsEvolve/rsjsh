@@ -26,7 +26,11 @@
                 <li><a class="dropdown-trigger bold-font" href="#" data-target="jenis-masalah_DD">Buat Laporan<i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a class="dropdown-trigger bold-font" href="#" data-target="laporan_DD">Laporan<i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a href="#" class="bold-font">Profil</a></li>
-                <li><a href="#" class="bold-font">Pesan<span class="new badge teal">4</span></a></li>
+                <li><a href="#" class="bold-font">Pesan
+                        <?php if ($new_msg > 0) : ?>
+                            <span class="new badge teal"><?php echo $new_msg; ?></span>
+                        <?php endif; ?>
+                    </a></li>
                 <li><a class="dropdown-trigger bold-font" href="#" data-target="acc_DD">Viki<i class="material-icons right">account_circle</i></a></li>
 
             </ul>

@@ -7,11 +7,13 @@ class Dashboard extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    $this->load->model('komentar_model');
   }
 
   public function index()
   {
-    $this->load->view('admin/dashboard_v.php');
+    $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $this->load->view('admin/dashboard_v.php', $data);
   }
 
 }

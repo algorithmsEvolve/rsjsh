@@ -27,7 +27,7 @@
                     <div class="col s4 m4">
                         <div class="card z-depth-4 red darken-2 white-text">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="white-text">
+                                <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_air&&id=' . $l1->nomor_laporan) ?>" class="white-text">
                                     <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                                         Ruangan : <?php echo $l1->ruangan; ?> <br>
                                         Bagian : <?php echo $l1->bagian; ?> <br>
@@ -50,7 +50,7 @@
                     <div class="col s4 m4">
                         <div class="card z-depth-4 red darken-2 white-text">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="white-text">
+                                <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_air&&id=' . $l1->nomor_laporan) ?>" class="white-text">
                                     <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                                         Ruangan : <?php echo $l1->ruangan; ?> <br>
                                         Bagian : <?php echo $l1->bagian; ?> <br>
@@ -73,7 +73,7 @@
                 <<div class="col s4 m4">
                     <div class="card z-depth-4 red darken-2 white-text">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="white-text">
+                            <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_air&&id=' . $l1->nomor_laporan) ?>" class="white-text">
                                 <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                                     Ruangan : <?php echo $l1->ruangan; ?> <br>
                                     Bagian : <?php echo $l1->bagian; ?> <br>
@@ -104,7 +104,7 @@ foreach ($laporan_bangunan->result() as $l1) :
             <div class="col s4 m4">
                 <div class="card z-depth-4 green white-text">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="white-text">
+                        <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_bangunan&&id=' . $l1->nomor_laporan) ?>" class="white-text">
                             <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                                 Ruangan : <?php echo $l1->ruangan; ?> <br>
                                 Bagian : <?php echo $l1->bagian; ?> <br>
@@ -127,7 +127,7 @@ foreach ($laporan_bangunan->result() as $l1) :
             <div class="col s4 m4">
                 <div class="card z-depth-4 green white-text">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="white-text">
+                        <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_bangunan&&id=' . $l1->nomor_laporan) ?>" class="white-text">
                             <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                                 Ruangan : <?php echo $l1->ruangan; ?> <br>
                                 Bagian : <?php echo $l1->bagian; ?> <br>
@@ -150,7 +150,7 @@ foreach ($laporan_bangunan->result() as $l1) :
         <div class="col s4 m4">
             <div class="card z-depth-4 green white-text">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="white-text">
+                    <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_bangunan&&id=' . $l1->nomor_laporan) ?>" class="white-text">
                         <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                             Ruangan : <?php echo $l1->ruangan; ?> <br>
                             Bagian : <?php echo $l1->bagian; ?> <br>
@@ -181,7 +181,7 @@ foreach ($laporan_furnitur->result() as $l1) :
             <div class="col s4 m4">
                 <div class="card z-depth-4 yellow black-text">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="black-text">
+                        <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_furnitur&&id=' . $l1->nomor_laporan) ?>" class="black-text">
                             <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                                 Ruangan : <?php echo $l1->ruangan; ?> <br>
                                 Bagian : <?php echo $l1->bagian; ?> <br>
@@ -204,7 +204,7 @@ foreach ($laporan_furnitur->result() as $l1) :
             <div class="col s4 m4">
                 <div class="card z-depth-4 yellow black-text">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="black-text">
+                        <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_furnitur&&id=' . $l1->nomor_laporan) ?>" class="black-text">
                             <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                                 Ruangan : <?php echo $l1->ruangan; ?> <br>
                                 Bagian : <?php echo $l1->bagian; ?> <br>
@@ -227,7 +227,7 @@ foreach ($laporan_furnitur->result() as $l1) :
         <div class="col s4 m4">
             <div class="card z-depth-4 yellow black-text">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="black-text">
+                    <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_furnitur&&id=' . $l1->nomor_laporan) ?>" class="black-text">
                         <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                             Ruangan : <?php echo $l1->ruangan; ?> <br>
                             Bagian : <?php echo $l1->bagian; ?> <br>
@@ -258,7 +258,7 @@ foreach ($laporan_listrik->result() as $l1) :
             <div class="col s4 m4">
                 <div class="card z-depth-4 blue white-text">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="white-text">
+                        <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_listrik&&id=' . $l1->nomor_laporan) ?>" class="white-text">
                             <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                                 Ruangan : <?php echo $l1->ruangan; ?> <br>
                                 Bagian : <?php echo $l1->bagian; ?> <br>
@@ -281,7 +281,7 @@ foreach ($laporan_listrik->result() as $l1) :
             <div class="col s4 m4">
                 <div class="card z-depth-4 blue white-text">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="white-text">
+                        <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_listrik&&id=' . $l1->nomor_laporan) ?>" class="white-text">
                             <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                                 Ruangan : <?php echo $l1->ruangan; ?> <br>
                                 Bagian : <?php echo $l1->bagian; ?> <br>
@@ -304,7 +304,7 @@ foreach ($laporan_listrik->result() as $l1) :
         <div class="col s4 m4">
             <div class="card z-depth-4 blue white-text">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="white-text">
+                    <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_listrik&&id=' . $l1->nomor_laporan) ?>" class="white-text">
                         <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                             Ruangan : <?php echo $l1->ruangan; ?> <br>
                             Bagian : <?php echo $l1->bagian; ?> <br>
@@ -335,7 +335,7 @@ foreach ($laporan_peralatan->result() as $l1) :
             <div class="col s4 m4">
                 <div class="card z-depth-4 white black-text">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="black-text">
+                        <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_peralatan&&id=' . $l1->nomor_laporan) ?>" class="black-text">
                             <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                                 Ruangan : <?php echo $l1->ruangan; ?> <br>
                                 Bagian : <?php echo $l1->bagian; ?> <br>
@@ -358,7 +358,7 @@ foreach ($laporan_peralatan->result() as $l1) :
             <div class="col s4 m4">
                 <div class="card z-depth-4 white black-text">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="black-text">
+                        <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_peralatan&&id=' . $l1->nomor_laporan) ?>" class="black-text">
                             <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                                 Ruangan : <?php echo $l1->ruangan; ?> <br>
                                 Bagian : <?php echo $l1->bagian; ?> <br>
@@ -381,7 +381,7 @@ foreach ($laporan_peralatan->result() as $l1) :
         <div class="col s4 m4">
             <div class="card z-depth-4 white black-text">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <a href="<?php echo base_url('admin/laporan/show_laporan') ?>" class="black-text">
+                    <a href="<?php echo base_url('admin/laporan/show_laporan?jenis_laporan=laporan_peralatan&&id=' . $l1->nomor_laporan) ?>" class="black-text">
                         <p class="laporan-card margin-left"><b><?php echo $l1->nomor_laporan; ?></b> <br>
                             Ruangan : <?php echo $l1->ruangan; ?> <br>
                             Bagian : <?php echo $l1->bagian; ?> <br>

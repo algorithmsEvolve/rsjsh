@@ -12,31 +12,38 @@ class Buat_laporan extends CI_Controller
     $this->load->model('laporan_listrik_model');
     $this->load->model('laporan_furnitur_model');
     $this->load->model('laporan_peralatan_model');
+    $this->load->model('komentar_model');
+    
   }
 
   function bangunan()
   {
-    $this->load->view('admin/form_laporan_bangunan_v');
+    $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $this->load->view('admin/form_laporan_bangunan_v', $data);
   }
 
   function furnitur()
   {
-    $this->load->view('admin/form_laporan_furnitur_v');
+    $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $this->load->view('admin/form_laporan_furnitur_v', $data);
   }
 
   function air()
   {
-    $this->load->view('admin/form_laporan_air_v');
+    $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $this->load->view('admin/form_laporan_air_v', $data);
   }
 
   function listrik()
   {
-    $this->load->view('admin/form_laporan_listrik_v');
+    $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $this->load->view('admin/form_laporan_listrik_v', $data);
   }
 
   function peralatan()
   {
-    $this->load->view('admin/form_laporan_peralatan_v');
+    $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $this->load->view('admin/form_laporan_peralatan_v', $data);
   }
 
   //input

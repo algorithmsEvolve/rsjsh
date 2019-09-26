@@ -9,3 +9,31 @@
 	margin-left: 10px !important;
 	font-size: 12px;
 }
+
+.card-comment {
+	height: 100px !important;
+}
+
+.card-image {
+	margin: 20px !important;
+}
+
+.card-action {
+	height: 10px !important;
+}
+
+.name-comment {
+	margin-right: 20px;
+}
+
+.teal-text {
+	color: teal;
+}
+
+.card-divider {
+	border-left: 2px solid teal !important;
+}
+
+.write-comment {
+	margin-top: 20px;
+}
