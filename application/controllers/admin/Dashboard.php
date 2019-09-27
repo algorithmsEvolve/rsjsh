@@ -8,11 +8,21 @@ class Dashboard extends CI_Controller
   {
     parent::__construct();
     $this->load->model('komentar_model');
+    $this->load->model('laporan_model');
+    
   }
 
   public function index()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    
+    //total laporan
+    $data['total_laporan'] = $this->laporan_model->total_laporan();
+    //diterima
+    $data['laporan_diterima'] = $this->laporan_model->laporan_diterima();
+    //selesai
+    $data['laporan_selesai'] = $this->laporan_model->laporan_selesai();
+    
     $this->load->view('admin/dashboard_v.php', $data);
   }
 

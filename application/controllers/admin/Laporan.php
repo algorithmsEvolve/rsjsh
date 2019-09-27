@@ -89,6 +89,30 @@ class Laporan extends CI_Controller
     $data['pesan'] = $this->komentar_model->get_pesan($nomor_laporan);
     $this->load->view('admin/show_detail_laporan_v.php', $data);
   }
+
+  function input_komentar()
+  {
+    $nomor_laporan = $this->input->post('nomor_laporan');
+    $tanggal = date('Ymd');
+    $id_user = $this->input->post('id_user');
+    $pelapor = $this->input->post('pelapor');
+    $divisi_user = $this->input->post('divisi_user');
+    $komentar = $this->input->post('komentar');
+    $jenis_laporan = $this->input->post('jenis_laporan');
+
+
+    //generate id komentar
+    $result = $this->komentar_model->count($nomor_laporan);
+    if ($result < 10) {
+      $index = '00' . ($result + 1);
+    } else if ($result < 100) {
+      $index = '0' . ($result + 1);
+    }
+    $id_komentar = 'K-' . $nomor_laporan . "-" . $index;
+
+    $this->komentar_model->input($id_komentar, $id_user, $pelapor, $divisi_user, $tanggal, $komentar, $nomor_laporan);
+    redirect('admin/laporan/show_laporan?id='.$nomor_laporan.'&&jenis_laporan='.$jenis_laporan);
+  }
 }
 
 

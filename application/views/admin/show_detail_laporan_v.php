@@ -64,7 +64,10 @@
                 <div class="col s9">
                     <h6> <b>: <?php echo $l->tambahan; ?></b></h6>
                 </div>
-            <?php endforeach; ?>
+            <?php 
+        $nomor_laporan = $l->nomor_laporan;
+        $pelapor = $l->pelapor;
+        endforeach; ?>
             </div>
         </div>
 
@@ -93,18 +96,23 @@
 
                         </div>
                         <div class="card-action">
-                            <a href="#" class="teal-text">Reply</a>
+                            <a href="#icon_prefix2" class="teal-text">Reply</a>
                         </div>
                     </div>
                     <!-- end card komentar -->
                 <?php endforeach; ?>
 
                 <!-- input komentar -->
-                <form action="" class="col s12 write-comment" method="POST">
+                <form action="<?php echo base_url('admin/laporan/input_komentar'); ?>" class="col s12 write-comment" method="POST">
                     <div class="row">
                         <div class="input-field col s12">
+                            <input type="text" name="nomor_laporan" value="<?php echo $nomor_laporan; ?>" hidden>
+                            <input type="text" name="id_user" value="user001" hidden>
+                            <input type="text" name="divisi_user" value="Admin" hidden>
+                            <input type="text" name="pelapor" value="<?php echo $pelapor; ?>" hidden>
+                            <input type="text" name="jenis_laporan" value="<?php echo $this->input->get('jenis_laporan'); ?>" hidden>
                             <i class="material-icons prefix">mode_edit</i>
-                            <textarea id="icon_prefix2" class="materialize-textarea" name="tambahan"></textarea>
+                            <textarea id="icon_prefix2" class="materialize-textarea" name="komentar"></textarea>
                             <label for="icon_prefix2">Tulis Komentar..</label>
                         </div>
                     </div>
