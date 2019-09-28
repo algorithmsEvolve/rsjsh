@@ -3,13 +3,13 @@
 
 <head>
     <title>RSJHS - Dashboard Laporan Infrastruktur</title>
-    <?php $this->load->view('admin/partials/css.php') ?>
+    <?php $this->load->view('pegawai/partials/css.php') ?>
 </head>
 
 <body>
 
     <!-- navbar -->
-    <?php $this->load->view('admin/partials/navbar.php') ?>
+    <?php $this->load->view('pegawai/partials/navbar.php') ?>
     <!-- end navbar -->
 
     <div class="container">
@@ -103,13 +103,13 @@
                 <?php endforeach; ?>
 
                 <!-- input komentar -->
-                <form action="<?php echo base_url('admin/laporan/input_komentar'); ?>" class="col s12 write-comment" method="POST">
+                <form action="<?php echo base_url('pegawai/laporan/input_komentar'); ?>" class="col s12 write-comment" method="POST">
                     <div class="row">
                         <div class="input-field col s12">
                             <input type="text" name="nomor_laporan" value="<?php echo $nomor_laporan; ?>" hidden>
-                            <input type="text" name="id_user" value="user001" hidden>
-                            <input type="text" name="divisi_user" value="Admin" hidden>
-                            <input type="text" name="pelapor" value="<?php echo $pelapor; ?>" hidden>
+                            <input type="text" name="id_user" value="<?php echo $this->session->userdata('id_user'); ?>" hidden>
+                            <input type="text" name="divisi_user" value="<?php echo ucfirst($this->session->userdata('divisi')); ?>" hidden>
+                            <input type="text" name="pelapor" value="<?php echo $this->session->userdata('nama_user'); ?>" hidden>
                             <input type="text" name="jenis_laporan" value="<?php echo $this->input->get('jenis_laporan'); ?>" hidden>
                             <i class="material-icons prefix">mode_edit</i>
                             <textarea id="icon_prefix2" class="materialize-textarea" name="komentar"></textarea>
@@ -127,7 +127,7 @@
     </div>
 
     <!-- js -->
-    <?php $this->load->view('admin/partials/js.php') ?>
+    <?php $this->load->view('pegawai/partials/js.php') ?>
 </body>
 
 </html>

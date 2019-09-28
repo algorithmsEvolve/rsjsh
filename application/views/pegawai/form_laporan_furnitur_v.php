@@ -3,28 +3,29 @@
 
 <head>
     <title>RSJHS - Dashboard Laporan Infrastruktur</title>
-    <?php $this->load->view('admin/partials/css.php') ?>
+    <?php $this->load->view('pegawai/partials/css.php') ?>
 </head>
 
 <body>
 
     <!-- navbar -->
-    <?php $this->load->view('admin/partials/navbar.php') ?>
+    <?php $this->load->view('pegawai/partials/navbar.php') ?>
     <!-- end navbar -->
 
     <!-- content -->
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <h5 class="center">Buat Laporan Bangunan</h5>
+                <h5 class="center">Buat Laporan Furnitur</h5>
             </div>
         </div>
 
         <label class="row">
-            <form action="<?php echo base_url('admin/buat_laporan/proses_input_bangunan'); ?>" method="POST" class="col s12">
+            <form action="<?php echo base_url('pegawai/buat_laporan/proses_input_furnitur'); ?>" method="POST" class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input type="text" name="pelapor" value="Viki Hardiyanto" hidden>
+                        <input type="text" name="pelapor" value="<?php echo $this->session->userdata('nama_user'); ?>" hidden>
+                        <input type="text" name="id" value="<?php echo $this->session->userdata('id_user'); ?>" hidden>
                         <input id="ruangan" type="text" class="validate" name="ruangan">
                         <label for="ruangan">Ruangan</label>
                     </div>
@@ -33,30 +34,26 @@
                         <label for="bagian">Bagian</label>
                     </div>
                 </div>
-                <h6>Pilih Keluhan :</h6>
                 <div class="row">
                     <div class="input-field col s12">
-                        <label>
-                            <input type="checkbox" class="filled-in" name="c1" value="Atap Bocor">
-                            <span>Atap Bocor</span>
-                        </label>
+                        <input id="pilih_keluhan" type="text" class="validate" name="keluhan">
+                        <label for="pilih_keluhan">Pilih Keluhan</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <label>
-                            <input type="checkbox" class="filled-in" name="c2" value="Kerusakan Jendela/Pintu">
-                            <span>Kerusakan Jendela/Pintu</span>
+                            <input type="radio" class="with-gap" name="group-1" value="Rusak Parah">
+                            <span>Rusak Parah</span>
                         </label>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <label>
-                            <input type="checkbox" class="filled-in" name="c3" value="Lantai Retak">
-                            <span>Lantai Retak</span>
+                            <input type="radio" class="with-gap" name="group-1" value="Rusak Ringan">
+                            <span>Rusak Ringan</span>
                         </label>
                     </div>
+
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
@@ -73,7 +70,7 @@
     <!-- end content -->
 
     <!-- js -->
-    <?php $this->load->view('admin/partials/js.php') ?>
+    <?php $this->load->view('pegawai/partials/js.php') ?>
     <?php
     $id = $this->input->get('id');
     if ($id == 1) : ?>
@@ -81,7 +78,7 @@
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <h4>Input Berhasil</h4>
-                <p>Laporan Bangunan berhasil di input.</p>
+                <p>Laporan Furnitur berhasil di input.</p>
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>

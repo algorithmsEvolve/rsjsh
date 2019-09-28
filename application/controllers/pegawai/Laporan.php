@@ -7,6 +7,9 @@ class Laporan extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    if ($this->session->userdata('status') == NULL) {
+      redirect('homepage');
+    }
     $this->load->model('laporan_model');
     $this->load->model('komentar_model');
   }
@@ -22,7 +25,7 @@ class Laporan extends CI_Controller
     $data['laporan_furnitur'] = $this->laporan_model->get_laporan_furnitur($parameter);
     $data['laporan_listrik'] = $this->laporan_model->get_laporan_listrik($parameter);
     $data['laporan_peralatan'] = $this->laporan_model->get_laporan_peralatan($parameter);
-    $this->load->view('admin/show_laporan_v.php', $data);
+    $this->load->view('pegawai/show_laporan_v.php', $data);
   }
 
   function show_laporan_dk()
@@ -36,7 +39,7 @@ class Laporan extends CI_Controller
     $data['laporan_furnitur'] = $this->laporan_model->get_laporan_furnitur($parameter);
     $data['laporan_listrik'] = $this->laporan_model->get_laporan_listrik($parameter);
     $data['laporan_peralatan'] = $this->laporan_model->get_laporan_peralatan($parameter);
-    $this->load->view('admin/show_laporan_v.php', $data);
+    $this->load->view('pegawai/show_laporan_v.php', $data);
   }
 
   function show_laporan_s()
@@ -50,7 +53,7 @@ class Laporan extends CI_Controller
     $data['laporan_furnitur'] = $this->laporan_model->get_laporan_furnitur($parameter);
     $data['laporan_listrik'] = $this->laporan_model->get_laporan_listrik($parameter);
     $data['laporan_peralatan'] = $this->laporan_model->get_laporan_peralatan($parameter);
-    $this->load->view('admin/show_laporan_v.php', $data);
+    $this->load->view('pegawai/show_laporan_v.php', $data);
   }
 
   function show_laporan_semua()
@@ -81,7 +84,7 @@ class Laporan extends CI_Controller
     $data['laporan_listrik_sd'] = $this->laporan_model->get_laporan_listrik($parameter_sd);
     $data['laporan_peralatan_sd'] = $this->laporan_model->get_laporan_peralatan($parameter_sd);
 
-    $this->load->view('admin/show_semua_laporan_v.php', $data);
+    $this->load->view('pegawai/show_semua_laporan_v.php', $data);
   }
 
   function show_laporan()
@@ -92,7 +95,7 @@ class Laporan extends CI_Controller
     $jenis_laporan = $this->input->get('jenis_laporan');
     $data['laporan'] = $this->laporan_model->get_laporan($jenis_laporan, $nomor_laporan);
     $data['pesan'] = $this->komentar_model->get_pesan($nomor_laporan);
-    $this->load->view('admin/show_detail_laporan_v.php', $data);
+    $this->load->view('pegawai/show_detail_laporan_v.php', $data);
   }
 
   function show_laporan_and_read()
@@ -103,9 +106,9 @@ class Laporan extends CI_Controller
     $jenis_laporan = $this->input->get('jenis_laporan');
     $data['laporan'] = $this->laporan_model->get_laporan($jenis_laporan, $nomor_laporan);
     $id_komentar = $this->input->get('id_komentar');
-    $this->komentar_model->read_komentar($id_komentar);
+    $this->komentar_model->read_notif($id_komentar);
     $data['pesan'] = $this->komentar_model->get_pesan($nomor_laporan);
-    $this->load->view('admin/show_detail_laporan_v.php', $data);
+    $this->load->view('pegawai/show_detail_laporan_v.php', $data);
   }
 
 
@@ -129,7 +132,7 @@ class Laporan extends CI_Controller
     $id_komentar = 'K-' . $nomor_laporan . "-" . $index;
 
     $this->komentar_model->input($id_komentar, $id_user, $pelapor, $divisi_user, $tanggal, $komentar, $nomor_laporan);
-    redirect('admin/laporan/show_laporan?id='.$nomor_laporan.'&&jenis_laporan='.$jenis_laporan);
+    redirect('pegawai/laporan/show_laporan?id=' . $nomor_laporan . '&&jenis_laporan=' . $jenis_laporan);
   }
 }
 

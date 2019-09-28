@@ -29,12 +29,12 @@
                 <div class="col s12 offset-s1">
                     <div class="col s4 m4">
                         <div class="card card1 blue darken-3 z-depth-4 card-homepage">
-                            <a href="<?php echo base_url('login'); ?>">
+                            <a href="<?php echo base_url('login?divisi=pegawai'); ?>">
                                 <div class="card-image waves-effect waves-block waves-light">
                                     <img class="activator" src="<?php echo base_url('assets/img/admin-icon.png'); ?>">
                                 </div>
                                 <div class="card-content">
-                                    <span class="card-title activator white-text text-darken-4"> <b> Admin </b></span>
+                                    <span class="card-title activator white-text text-darken-4"> <b> Pegawai </b></span>
                                 </div>
                             </a>
                         </div>
@@ -42,7 +42,7 @@
                     <div class="col s2"></div>
                     <div class="col s4 m4">
                         <div class="card card2 red darken-3 z-depth-4 card-homepage">
-                            <a href="<?php echo base_url('login'); ?>">
+                            <a href="<?php echo base_url('login?divisi=teknisi'); ?>">
                                 <div class="card-image waves-effect waves-block waves-light">
                                     <img class="activator" src="<?php echo base_url('assets/img/teknisi-icon.png'); ?>">
                                 </div>

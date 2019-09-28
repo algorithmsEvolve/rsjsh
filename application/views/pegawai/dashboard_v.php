@@ -3,26 +3,26 @@
 
 <head>
     <title>RSJHS - Dashboard Laporan Infrastruktur</title>
-    <?php $this->load->view('admin/partials/css.php') ?>
+    <?php $this->load->view('pegawai/partials/css.php') ?>
 </head>
 
 <body>
 
     <!-- navbar -->
-    <?php $this->load->view('admin/partials/navbar.php') ?>
+    <?php $this->load->view('pegawai/partials/navbar.php') ?>
     <!-- end navbar -->
 
     <div class="container">
         <div class="section">
             <div class="row">
 
-                <div class="col s6">
+                <div class="col s8">
                     <div class="row">
                         <div class="col s2">
                             <h6 class="grey-text">Nama</h6>
                         </div>
                         <div class="col s4">
-                            <h6>: Viki Hardiyanto</h6>
+                            <h6>: <?php echo $this->session->userdata('nama_user'); ?></h6>
                         </div>
                     </div>
                     <div class="row">
@@ -30,7 +30,7 @@
                             <h6 class="grey-text">Ruangan</h6>
                         </div>
                         <div class="col s4">
-                            <h6>: Mawar</h6>
+                            <h6>: <?php echo $this->session->userdata('ruangan'); ?></h6>
                         </div>
                     </div>
                     <div class="row">
@@ -38,12 +38,12 @@
                             <h6 class="grey-text">Instalasi</h6>
                         </div>
                         <div class="col s4">
-                            <h6>: Bangunan</h6>
+                            <h6>: <?php echo $this->session->userdata('instalasi'); ?></h6>
                         </div>
                     </div>
                 </div>
 
-                <div class="col s6 right-align">
+                <div class="col s4 right-align">
                     <h5>Laporan Keseluruhan</h5> <br>
                     <h3><?php echo $total_laporan; ?></h3>
                 </div>
@@ -78,7 +78,7 @@
                 <div class="col s2 m2">
 
                     <div class="card yellow z-depth-4">
-                        <a href="<?php echo base_url('admin/buat_laporan/furnitur'); ?>">
+                        <a href="<?php echo base_url('pegawai/buat_laporan/furnitur'); ?>">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" src="<?php echo base_url('assets/img/furnitur.png'); ?>">
                             </div>
@@ -92,7 +92,7 @@
                 <div class="col s2 m2">
 
                     <div class="card blue z-depth-4">
-                        <a href="<?php echo base_url('admin/buat_laporan/listrik'); ?>">
+                        <a href="<?php echo base_url('pegawai/buat_laporan/listrik'); ?>">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" src="<?php echo base_url('assets/img/listrik.png'); ?>">
                             </div>
@@ -106,7 +106,7 @@
                 <div class="col s2 m2">
 
                     <div class="card red z-depth-4 darken-2">
-                        <a href="<?php echo base_url('admin/buat_laporan/air'); ?>">
+                        <a href="<?php echo base_url('pegawai/buat_laporan/air'); ?>">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" src="<?php echo base_url('assets/img/air.png'); ?>">
                             </div>
@@ -122,7 +122,7 @@
                 <div class="col s2 m2">
 
                     <div class="card z-depth-4">
-                        <a href="<?php echo base_url('admin/buat_laporan/peralatan'); ?>">
+                        <a href="<?php echo base_url('pegawai/buat_laporan/peralatan'); ?>">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" src="<?php echo base_url('assets/img/peralatan.png'); ?>">
                             </div>
@@ -136,7 +136,7 @@
                 <div class="col s2 m2">
 
                     <div class="card green z-depth-4">
-                        <a href="<?php echo base_url('admin/buat_laporan/bangunan'); ?>">
+                        <a href="<?php echo base_url('pegawai/buat_laporan/bangunan'); ?>">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" src="<?php echo base_url('assets/img/bangunan.png'); ?>">
                             </div>
@@ -151,7 +151,7 @@
     </div>
 
     <!-- js -->
-    <?php $this->load->view('admin/partials/js.php') ?>
+    <?php $this->load->view('pegawai/partials/js.php') ?>
 </body>
 
 </html>

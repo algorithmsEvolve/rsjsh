@@ -10,7 +10,7 @@ class Laporan_bangunan_model extends CI_Model
     return $this->db->count_all_results('laporan_bangunan');
   }
 
-  function input($nolap, $tgl, $ruangan, $bagian, $pelapor, $keluhan, $tambahan)
+  function input($nolap, $tgl, $ruangan, $bagian, $pelapor, $keluhan, $tambahan, $id_pelapor)
   {
     $data = array(
       'nomor_laporan' => $nolap,
@@ -19,7 +19,8 @@ class Laporan_bangunan_model extends CI_Model
       'bagian' => $bagian,
       'pelapor' => $pelapor,
       'keluhan' => $keluhan,
-      'tambahan' => $tambahan
+      'tambahan' => $tambahan,
+      'id_pelapor' => $id_pelapor
     );
     $this->db->insert('laporan_bangunan', $data);
   }

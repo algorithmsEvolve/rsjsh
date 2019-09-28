@@ -3,13 +3,13 @@
 
 <head>
     <title>RSJHS - Dashboard Laporan Infrastruktur</title>
-    <?php $this->load->view('admin/partials/css.php') ?>
+    <?php $this->load->view('pegawai/partials/css.php') ?>
 </head>
 
 <body>
 
     <!-- navbar -->
-    <?php $this->load->view('admin/partials/navbar.php') ?>
+    <?php $this->load->view('pegawai/partials/navbar.php') ?>
     <!-- end navbar -->
 
     <!-- content -->
@@ -21,10 +21,11 @@
         </div>
 
         <div class="row">
-            <form action="<?php echo base_url('admin/buat_laporan/proses_input_air'); ?>" method="POST" class="col s12">
+            <form action="<?php echo base_url('pegawai/buat_laporan/proses_input_air'); ?>" method="POST" class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input type="text" name="pelapor" value="Viki Hardiyanto" hidden>
+                        <input type="text" name="pelapor" value="<?php echo $this->session->userdata('nama_user'); ?>" hidden>
+                        <input type="text" name="id" value="<?php echo $this->session->userdata('id_user'); ?>" hidden>
                         <input id="ruangan" type="text" class="validate" name="ruangan">
                         <label for="ruangan">Ruangan</label>
                     </div>
@@ -81,7 +82,7 @@
     <!-- end content -->
 
     <!-- js -->
-    <?php $this->load->view('admin/partials/js.php') ?>
+    <?php $this->load->view('pegawai/partials/js.php') ?>
     <?php
     $id = $this->input->get('id');
     if ($id == 1) : ?>

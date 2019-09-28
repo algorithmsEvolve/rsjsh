@@ -7,48 +7,50 @@ class Buat_laporan extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    if ($this->session->userdata('status') == NULL) {
+      redirect('homepage');
+    }
     $this->load->model('laporan_bangunan_model');
     $this->load->model('laporan_air_model');
     $this->load->model('laporan_listrik_model');
     $this->load->model('laporan_furnitur_model');
     $this->load->model('laporan_peralatan_model');
     $this->load->model('komentar_model');
-    
   }
 
   function bangunan()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
     $data['notif'] = $this->komentar_model->get_notif();
-    $this->load->view('admin/form_laporan_bangunan_v', $data);
+    $this->load->view('teknisi/form_laporan_bangunan_v', $data);
   }
 
   function furnitur()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
     $data['notif'] = $this->komentar_model->get_notif();
-    $this->load->view('admin/form_laporan_furnitur_v', $data);
+    $this->load->view('teknisi/form_laporan_furnitur_v', $data);
   }
 
   function air()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
     $data['notif'] = $this->komentar_model->get_notif();
-    $this->load->view('admin/form_laporan_air_v', $data);
+    $this->load->view('teknisi/form_laporan_air_v', $data);
   }
 
   function listrik()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
     $data['notif'] = $this->komentar_model->get_notif();
-    $this->load->view('admin/form_laporan_listrik_v', $data);
+    $this->load->view('teknisi/form_laporan_listrik_v', $data);
   }
 
   function peralatan()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
     $data['notif'] = $this->komentar_model->get_notif();
-    $this->load->view('admin/form_laporan_peralatan_v', $data);
+    $this->load->view('teknisi/form_laporan_peralatan_v', $data);
   }
 
   //input
@@ -62,12 +64,12 @@ class Buat_laporan extends CI_Controller
     $c1 = $this->input->post('c1');
     $c2 = $this->input->post('c2');
     $c3 = $this->input->post('c3');
-    $keluhan = $c1." ".$c2." ".$c3;
+    $keluhan = $c1 . " " . $c2 . " " . $c3;
     $tambahan = $this->input->post('tambahan');
 
     //generate nolap
     $bagianEdit = str_replace(' ', '', $bagian);
-    $nolap = 'L-b/' . $ruangan . '/' . $bagianEdit . '/' . $tgl.'/';
+    $nolap = 'L-b/' . $ruangan . '/' . $bagianEdit . '/' . $tgl . '/';
     $result = $this->laporan_bangunan_model->count($nolap);
     if ($result < 10) {
       $index = '00' . ($result + 1);
@@ -75,10 +77,10 @@ class Buat_laporan extends CI_Controller
       $index = '0' . ($result + 1);
     }
 
-    $nolap = $nolap.$index;
+    $nolap = $nolap . $index;
 
     $this->laporan_bangunan_model->input($nolap, $tglDB, $ruangan, $bagian, $pelapor, $keluhan, $tambahan);
-    redirect('admin/buat_laporan/bangunan?id=1');
+    redirect('teknisi/buat_laporan/bangunan?id=1');
   }
 
   function proses_input_air()
@@ -92,12 +94,12 @@ class Buat_laporan extends CI_Controller
     $c2 = $this->input->post('c2');
     $c3 = $this->input->post('c3');
     $c4 = $this->input->post('c4');
-    $keluhan = $c1." ".$c2." ".$c3." ".$c4;
+    $keluhan = $c1 . " " . $c2 . " " . $c3 . " " . $c4;
     $tambahan = $this->input->post('tambahan');
 
     //generate nolap
     $bagianEdit = str_replace(' ', '', $bagian);
-    $nolap = 'L-a/' . $ruangan . '/' . $bagianEdit . '/' . $tgl.'/';
+    $nolap = 'L-a/' . $ruangan . '/' . $bagianEdit . '/' . $tgl . '/';
     $result = $this->laporan_air_model->count($nolap);
     if ($result < 10) {
       $index = '00' . ($result + 1);
@@ -105,10 +107,10 @@ class Buat_laporan extends CI_Controller
       $index = '0' . ($result + 1);
     }
 
-    $nolap = $nolap.$index;
+    $nolap = $nolap . $index;
 
     $this->laporan_air_model->input($nolap, $tglDB, $ruangan, $bagian, $pelapor, $keluhan, $tambahan);
-    redirect('admin/buat_laporan/air?id=1');
+    redirect('teknisi/buat_laporan/air?id=1');
   }
 
   function proses_input_listrik()
@@ -122,12 +124,12 @@ class Buat_laporan extends CI_Controller
     $c2 = $this->input->post('c2');
     $c3 = $this->input->post('c3');
     $c4 = $this->input->post('c4');
-    $keluhan = $c1." ".$c2." ".$c3." ".$c4;
+    $keluhan = $c1 . " " . $c2 . " " . $c3 . " " . $c4;
     $tambahan = $this->input->post('tambahan');
 
     //generate nolap
     $bagianEdit = str_replace(' ', '', $bagian);
-    $nolap = 'L-l/' . $ruangan . '/' . $bagianEdit . '/' . $tgl.'/';
+    $nolap = 'L-l/' . $ruangan . '/' . $bagianEdit . '/' . $tgl . '/';
     $result = $this->laporan_listrik_model->count($nolap);
     if ($result < 10) {
       $index = '00' . ($result + 1);
@@ -135,10 +137,10 @@ class Buat_laporan extends CI_Controller
       $index = '0' . ($result + 1);
     }
 
-    $nolap = $nolap.$index;
+    $nolap = $nolap . $index;
 
     $this->laporan_listrik_model->input($nolap, $tglDB, $ruangan, $bagian, $pelapor, $keluhan, $tambahan);
-    redirect('admin/buat_laporan/listrik?id=1');
+    redirect('teknisi/buat_laporan/listrik?id=1');
   }
 
   function proses_input_furnitur()
@@ -154,7 +156,7 @@ class Buat_laporan extends CI_Controller
 
     //generate nolap
     $bagianEdit = str_replace(' ', '', $bagian);
-    $nolap = 'L-f/' . $ruangan . '/' . $bagianEdit . '/' . $tgl.'/';
+    $nolap = 'L-f/' . $ruangan . '/' . $bagianEdit . '/' . $tgl . '/';
     $result = $this->laporan_furnitur_model->count($nolap);
     if ($result < 10) {
       $index = '00' . ($result + 1);
@@ -162,10 +164,10 @@ class Buat_laporan extends CI_Controller
       $index = '0' . ($result + 1);
     }
 
-    $nolap = $nolap.$index;
+    $nolap = $nolap . $index;
 
     $this->laporan_furnitur_model->input($nolap, $tglDB, $ruangan, $bagian, $pelapor, $keluhan, $jenis_keluhan, $tambahan);
-    redirect('admin/buat_laporan/furnitur?id=1');
+    redirect('teknisi/buat_laporan/furnitur?id=1');
   }
 
   function proses_input_peralatan()
@@ -181,7 +183,7 @@ class Buat_laporan extends CI_Controller
 
     //generate nolap
     $bagianEdit = str_replace(' ', '', $bagian);
-    $nolap = 'L-p/' . $ruangan . '/' . $bagianEdit . '/' . $tgl.'/';
+    $nolap = 'L-p/' . $ruangan . '/' . $bagianEdit . '/' . $tgl . '/';
     $result = $this->laporan_peralatan_model->count($nolap);
     if ($result < 10) {
       $index = '00' . ($result + 1);
@@ -189,10 +191,10 @@ class Buat_laporan extends CI_Controller
       $index = '0' . ($result + 1);
     }
 
-    $nolap = $nolap.$index;
+    $nolap = $nolap . $index;
 
     $this->laporan_peralatan_model->input($nolap, $tglDB, $ruangan, $bagian, $pelapor, $nama_peralatan, $jenis_keluhan, $tambahan);
-    redirect('admin/buat_laporan/peralatan?id=1');
+    redirect('teknisi/buat_laporan/peralatan?id=1');
   }
 }
 

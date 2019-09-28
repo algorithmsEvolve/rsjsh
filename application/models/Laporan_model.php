@@ -57,6 +57,32 @@ class Laporan_model extends CI_Model
     return $result;
   }
 
+  function get_laporan_ditangani($jenis_laporan, $nip, $status)
+  {
+    $result = $this->db->get_where($jenis_laporan, array('status' => $status, 'nip_teknisi' => $nip));
+    return $result;
+  }
+
+  function count_laporan_ditangani($jenis_laporan, $nip)
+  {
+    $this->db->like('nip_teknisi', $nip);
+    $la = $this->db->count_all_results($jenis_laporan);
+    return $la;
+  }
+
+  function get_laporan_dibuat($jenis_laporan, $nip, $status)
+  {
+    $result = $this->db->get_where($jenis_laporan, array('status' => $status, 'id_pelapor' => $nip));
+    return $result;
+  }
+
+  function count_laporan_dibuat($jenis_laporan, $nip)
+  {
+    $this->db->like('id_pelapor', $nip);
+    $la = $this->db->count_all_results($jenis_laporan);
+    return $la;
+  }
+
   function total_laporan()
   {
     $la = $this->db->count_all_results('laporan_air');
@@ -101,6 +127,16 @@ class Laporan_model extends CI_Model
 
     $result = $la + $lf + $lp + $ll + $lb;;
     return $result;
+  }
+
+  function update_status($nomor_laporan, $jenis_laporan, $status_laporan, $id_teknisi)
+  {
+    $data = array(
+      'status' => $status_laporan,
+      'nip_teknisi' => $id_teknisi
+    );
+    $this->db->where('nomor_laporan', $nomor_laporan);
+    $this->db->update($jenis_laporan, $data);
   }
 }
 

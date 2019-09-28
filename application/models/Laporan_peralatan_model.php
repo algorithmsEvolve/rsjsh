@@ -10,7 +10,7 @@ class Laporan_peralatan_model extends CI_Model
     return $this->db->count_all_results('laporan_peralatan');
   }
 
-  function input($nolap, $tgl, $ruangan, $bagian, $pelapor, $nama_peralatan, $jenis_keluhan, $tambahan)
+  function input($nolap, $tgl, $ruangan, $bagian, $pelapor, $nama_peralatan, $jenis_keluhan, $tambahan, $id_pelapor)
   {
     $data = array(
       'nomor_laporan' => $nolap,
@@ -20,7 +20,8 @@ class Laporan_peralatan_model extends CI_Model
       'pelapor' => $pelapor,
       'nama_peralatan' => $nama_peralatan,
       'jenis_keluhan' => $jenis_keluhan,
-      'tambahan' => $tambahan
+      'tambahan' => $tambahan,
+      'id_pelapor' => $id_pelapor
     );
     $this->db->insert('laporan_peralatan', $data);
   }

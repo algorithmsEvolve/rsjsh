@@ -1,8 +1,8 @@
 /* .card:hover {
-	transform: scale(1.5, 1.25);
-	-moz-transform: scale(1.5, 1.25);
-	-ms-transform: scale(1.5, 1.25);
-	-webkit-transform: scale(1.5, 1.25);
+	transform: scale(1.2, 1);
+	-moz-transform: scale(1.2, 1.25);
+	-ms-transform: scale(1.2, 1.25);
+	-webkit-transform: scale(1.2, 1.25);
 	-o-transform: scale(1.5, 1.25);
 }
 
@@ -13,9 +13,11 @@
 } */
 
 .card1:hover{
-    width: 300px;
-    /* This is 52px total. 1/2 of that is for top and the other half is for bottom. */
-    height: 400px;
+    transform: scale(1.2, 1);
+	-moz-transform: scale(1.2, 1);
+	-ms-transform: scale(1.2, 1);
+	-webkit-transform: scale(1.2, 1);
+	-o-transform: scale(1.2, 1);
     /* Below we are not using -26px for margin-top because .box has 6px border and 10px margin. */
     /* That 16px is then divide by 2 since it's for both top and bottom, or 8px per side. */
     /* Having said that, 26px - 8px is 18px. We need negative value to position it correctly. */
@@ -26,9 +28,11 @@
 }
 
 .card2:hover{
-    width: 300px;
-    /* This is 52px total. 1/2 of that is for top and the other half is for bottom. */
-    height: 400px;
+    transform: scale(1.2, 1);
+	-moz-transform: scale(1.2, 1);
+	-ms-transform: scale(1.2, 1);
+	-webkit-transform: scale(1.2, 1);
+	-o-transform: scale(1.2, 1);
     /* Below we are not using -26px for margin-top because .box has 6px border and 10px margin. */
     /* That 16px is then divide by 2 since it's for both top and bottom, or 8px per side. */
     /* Having said that, 26px - 8px is 18px. We need negative value to position it correctly. */
