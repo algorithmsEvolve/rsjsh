@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Sep 2019 pada 04.01
+-- Waktu pembuatan: 28 Sep 2019 pada 13.59
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 5.6.36
 
@@ -46,10 +46,7 @@ CREATE TABLE `komentar` (
 --
 
 INSERT INTO `komentar` (`id_komentar`, `id_user`, `nama_user`, `divisi_user`, `tanggal`, `komentar`, `nomor_laporan`, `status_komentar`) VALUES
-('K-L-a/Mawar/RawatInap/24092019/001-001', 'user001', 'Viki Hardiyanto', 'Admin', '2019-09-25', 'Keran rusak. Harap segera diperbaiki ya, Terimakasih.', 'L-a/Mawar/RawatInap/24092019/001', '0'),
-('K-L-a/Mawar/RawatInap/24092019/001-002', 'user002', 'Angga Nugraha', 'Teknisi', '2019-09-26', 'Baik pak. Segera akan saya perbaiki. Terimakasih atas laporannya.', 'L-a/Mawar/RawatInap/24092019/001', '0'),
-('K-L-a/Mawar/RawatInap/24092019/001-003', 'user001', 'Viki Hardiyanto', 'Admin', '2019-09-27', 'Mantap gan', 'L-a/Mawar/RawatInap/24092019/001', '0'),
-('K-L-l/Apel/UGD/24092019/001-001', 'user001', 'Viki Hardiyanto', 'Admin', '2019-09-27', 'Oke terimakasih, ditunggu hasilnya.', 'L-l/Apel/UGD/24092019/001', '0');
+('K-L-b/Kenangan/UGD/28092019/001-001', '696969', 'Akbar Riski', 'Pegawai', '2019-09-28', 'haha', 'L-b/Kenangan/UGD/28092019/001', '0');
 
 -- --------------------------------------------------------
 
@@ -62,7 +59,9 @@ CREATE TABLE `laporan_air` (
   `tanggal` date NOT NULL,
   `ruangan` varchar(256) NOT NULL,
   `bagian` varchar(256) NOT NULL,
+  `id_pelapor` varchar(255) NOT NULL,
   `pelapor` varchar(256) NOT NULL,
+  `nip_teknisi` varchar(255) NOT NULL,
   `keluhan` varchar(256) NOT NULL,
   `tambahan` text NOT NULL,
   `status` enum('Menunggu Konfirmasi','Sedang Dikerjakan','Selesai') NOT NULL
@@ -72,8 +71,8 @@ CREATE TABLE `laporan_air` (
 -- Dumping data untuk tabel `laporan_air`
 --
 
-INSERT INTO `laporan_air` (`nomor_laporan`, `tanggal`, `ruangan`, `bagian`, `pelapor`, `keluhan`, `tambahan`, `status`) VALUES
-('L-a/Mawar/RawatInap/24092019/001', '2019-09-24', 'Mawar', 'Rawat Inap', 'Viki Hardiyanto', 'Air Tidak Mengalir  Arus Air Kecil/Lemah Air Berbau', 'hay', 'Menunggu Konfirmasi');
+INSERT INTO `laporan_air` (`nomor_laporan`, `tanggal`, `ruangan`, `bagian`, `id_pelapor`, `pelapor`, `nip_teknisi`, `keluhan`, `tambahan`, `status`) VALUES
+('L-a/Kenangan/UGD/28092019/001', '2019-09-28', 'Kenangan', 'UGD', '696969', 'Akbar Riski', '12346', 'Air Tidak Mengalir   ', 'haha', 'Selesai');
 
 -- --------------------------------------------------------
 
@@ -86,7 +85,9 @@ CREATE TABLE `laporan_bangunan` (
   `tanggal` date NOT NULL,
   `ruangan` varchar(256) NOT NULL,
   `bagian` varchar(256) NOT NULL,
+  `id_pelapor` varchar(255) NOT NULL,
   `pelapor` varchar(256) NOT NULL,
+  `nip_teknisi` varchar(255) NOT NULL,
   `keluhan` varchar(256) NOT NULL,
   `tambahan` text NOT NULL,
   `status` enum('Menunggu Konfirmasi','Sedang Dikerjakan','Selesai') NOT NULL
@@ -96,8 +97,8 @@ CREATE TABLE `laporan_bangunan` (
 -- Dumping data untuk tabel `laporan_bangunan`
 --
 
-INSERT INTO `laporan_bangunan` (`nomor_laporan`, `tanggal`, `ruangan`, `bagian`, `pelapor`, `keluhan`, `tambahan`, `status`) VALUES
-('L-b/Mawar/RawatInap/24092019/001', '2019-09-24', 'Mawar', 'Rawat Inap', 'Viki Hardiyanto', 'Atap Bocor  ', 'dsg', 'Menunggu Konfirmasi');
+INSERT INTO `laporan_bangunan` (`nomor_laporan`, `tanggal`, `ruangan`, `bagian`, `id_pelapor`, `pelapor`, `nip_teknisi`, `keluhan`, `tambahan`, `status`) VALUES
+('L-b/Kenangan/UGD/28092019/001', '2019-09-28', 'Kenangan', 'UGD', '696969', 'Akbar Riski', '12346', 'Atap Bocor  ', 'gagsa', 'Sedang Dikerjakan');
 
 -- --------------------------------------------------------
 
@@ -110,19 +111,14 @@ CREATE TABLE `laporan_furnitur` (
   `tanggal` date NOT NULL,
   `ruangan` varchar(256) NOT NULL,
   `bagian` varchar(256) NOT NULL,
+  `id_pelapor` int(255) NOT NULL,
   `pelapor` varchar(256) NOT NULL,
+  `nip_teknisi` varchar(255) NOT NULL,
   `keluhan` varchar(256) NOT NULL,
   `jenis_keluhan` varchar(256) NOT NULL,
   `tambahan` varchar(256) NOT NULL,
   `status` enum('Menunggu Konfirmasi','Sedang Dikerjakan','Selesai') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `laporan_furnitur`
---
-
-INSERT INTO `laporan_furnitur` (`nomor_laporan`, `tanggal`, `ruangan`, `bagian`, `pelapor`, `keluhan`, `jenis_keluhan`, `tambahan`, `status`) VALUES
-('L-f/Mawar/RawatInap/25092019/001', '2019-09-25', 'Mawar', 'Rawat Inap', 'Viki Hardiyanto', 'Tak tau deh', 'Rusak Parah', 'haha', 'Menunggu Konfirmasi');
 
 -- --------------------------------------------------------
 
@@ -135,19 +131,13 @@ CREATE TABLE `laporan_listrik` (
   `tanggal` date NOT NULL,
   `ruangan` varchar(256) NOT NULL,
   `bagian` varchar(256) NOT NULL,
+  `id_pelapor` int(255) NOT NULL,
   `pelapor` varchar(256) NOT NULL,
+  `nip_teknisi` varchar(255) NOT NULL,
   `keluhan` varchar(256) NOT NULL,
   `tambahan` text NOT NULL,
   `status` enum('Menunggu Konfirmasi','Sedang Dikerjakan','Selesai') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `laporan_listrik`
---
-
-INSERT INTO `laporan_listrik` (`nomor_laporan`, `tanggal`, `ruangan`, `bagian`, `pelapor`, `keluhan`, `tambahan`, `status`) VALUES
-('L-l/Apel/UGD/24092019/001', '2019-09-24', 'Apel', 'UGD', 'Viki Hardiyanto', 'Lampu Mati   ', 'Mantap', 'Sedang Dikerjakan'),
-('L-l/Apel/UGD/24092019/002', '2019-09-24', 'Apel', 'UGD', 'Viki Hardiyanto', 'Lampu Mati   ', 'SDGSD', 'Menunggu Konfirmasi');
 
 -- --------------------------------------------------------
 
@@ -160,19 +150,38 @@ CREATE TABLE `laporan_peralatan` (
   `tanggal` date NOT NULL,
   `ruangan` varchar(256) NOT NULL,
   `bagian` varchar(256) NOT NULL,
+  `id_pelapor` varchar(255) NOT NULL,
   `pelapor` varchar(256) NOT NULL,
+  `nip_teknisi` varchar(255) NOT NULL,
   `nama_peralatan` varchar(256) NOT NULL,
   `jenis_keluhan` varchar(256) NOT NULL,
   `tambahan` varchar(256) NOT NULL,
   `status` enum('Menunggu Konfirmasi','Sedang Dikerjakan','Selesai') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data untuk tabel `laporan_peralatan`
+-- Struktur dari tabel `user`
 --
 
-INSERT INTO `laporan_peralatan` (`nomor_laporan`, `tanggal`, `ruangan`, `bagian`, `pelapor`, `nama_peralatan`, `jenis_keluhan`, `tambahan`, `status`) VALUES
-('L-p/mawar/UGD/25092019/001', '2019-09-25', 'mawar', 'UGD', 'Viki Hardiyanto', 'Infus', 'Rusak Total', 'tiba tiba aja', 'Menunggu Konfirmasi');
+CREATE TABLE `user` (
+  `NIP` int(255) NOT NULL,
+  `nama_user` varchar(256) NOT NULL,
+  `divisi` varchar(256) NOT NULL,
+  `ruangan` varchar(256) NOT NULL,
+  `instalasi` varchar(256) NOT NULL,
+  `password` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`NIP`, `nama_user`, `divisi`, `ruangan`, `instalasi`, `password`) VALUES
+(12345, 'Viki Hardiyanto', 'pegawai', 'Merak', 'Unit Gawat Darurat', 'ojan21'),
+(12346, 'Angga Nugraha', 'teknisi', '', '', 'anggabokep'),
+(696969, 'Akbar Riski', 'pegawai', 'Kenangan', 'Install Game', 'anggabokep');
 
 --
 -- Indexes for dumped tables
@@ -213,6 +222,12 @@ ALTER TABLE `laporan_listrik`
 --
 ALTER TABLE `laporan_peralatan`
   ADD PRIMARY KEY (`nomor_laporan`);
+
+--
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`NIP`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
