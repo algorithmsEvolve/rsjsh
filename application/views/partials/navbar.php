@@ -19,7 +19,7 @@
                 <li><a href="<?php echo base_url('admin/buat_laporan/peralatan') ?>" class="">Perlatan</a></li>
             </ul>
 
-            <ul id="pesan_DD" class="dropdown-content black-text" style="max-width:550px;">
+            <ul id="pesan_DD" class="dropdown-content dropdown-notif-pesan black-text" style="max-width:550px;">
                 <?php
                 $max = 1;
                 foreach ($notif->result() as $n) :

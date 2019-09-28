@@ -14,8 +14,10 @@ class Dashboard extends CI_Controller
 
   public function index()
   {
+    //jumlah komentar baru
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
-    
+    //notif
+    $data['notif'] = $this->komentar_model->get_notif();
     //total laporan
     $data['total_laporan'] = $this->laporan_model->total_laporan();
     //diterima

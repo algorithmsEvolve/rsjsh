@@ -14,6 +14,7 @@ class Laporan extends CI_Controller
   function show_laporan_mk()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $data['notif'] = $this->komentar_model->get_notif();
     $parameter = 'Menunggu Konfirmasi';
     $data['title'] = "Laporan Menunggu Konfirmasi";
     $data['laporan_air'] = $this->laporan_model->get_laporan_air($parameter);
@@ -27,6 +28,7 @@ class Laporan extends CI_Controller
   function show_laporan_dk()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $data['notif'] = $this->komentar_model->get_notif();
     $parameter = 'Sedang Dikerjakan';
     $data['title'] = "Laporan Sedang Dikerjakan";
     $data['laporan_air'] = $this->laporan_model->get_laporan_air($parameter);
@@ -40,6 +42,7 @@ class Laporan extends CI_Controller
   function show_laporan_s()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $data['notif'] = $this->komentar_model->get_notif();
     $parameter = 'Selesai';
     $data['title'] = "Laporan Selesai";
     $data['laporan_air'] = $this->laporan_model->get_laporan_air($parameter);
@@ -53,6 +56,7 @@ class Laporan extends CI_Controller
   function show_laporan_semua()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $data['notif'] = $this->komentar_model->get_notif();
     //laporan selesai
     $parameter_s = 'Selesai';
     $data['laporan_air_s'] = $this->laporan_model->get_laporan_air($parameter_s);
@@ -83,12 +87,27 @@ class Laporan extends CI_Controller
   function show_laporan()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $data['notif'] = $this->komentar_model->get_notif();
     $nomor_laporan = $this->input->get('id');
     $jenis_laporan = $this->input->get('jenis_laporan');
     $data['laporan'] = $this->laporan_model->get_laporan($jenis_laporan, $nomor_laporan);
     $data['pesan'] = $this->komentar_model->get_pesan($nomor_laporan);
     $this->load->view('admin/show_detail_laporan_v.php', $data);
   }
+
+  function show_laporan_and_read()
+  {
+    $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $data['notif'] = $this->komentar_model->get_notif();
+    $nomor_laporan = $this->input->get('id');
+    $jenis_laporan = $this->input->get('jenis_laporan');
+    $data['laporan'] = $this->laporan_model->get_laporan($jenis_laporan, $nomor_laporan);
+    $id_komentar = $this->input->get('id_komentar');
+    $this->komentar_model->read_komentar($id_komentar);
+    $data['pesan'] = $this->komentar_model->get_pesan($nomor_laporan);
+    $this->load->view('admin/show_detail_laporan_v.php', $data);
+  }
+
 
   function input_komentar()
   {
@@ -99,7 +118,6 @@ class Laporan extends CI_Controller
     $divisi_user = $this->input->post('divisi_user');
     $komentar = $this->input->post('komentar');
     $jenis_laporan = $this->input->post('jenis_laporan');
-
 
     //generate id komentar
     $result = $this->komentar_model->count($nomor_laporan);

@@ -37,6 +37,20 @@ class Komentar_model extends CI_Model
     $this->db->insert('komentar', $data);
   }
 
+  function get_notif()
+  {
+    $result = $this->db->get_where('komentar', array('status_komentar' => '0'));
+    return $result;
+  }
+
+  function read_notif($id_komentar)
+  {
+    $data = array(
+      'status_komentar' => '1'
+    );
+    $this->db->where('id_komentar', $id_komentar);
+    $this->db->update('komentar', $data);
+  }
 }
 
 /* End of file Laporan_model.php */

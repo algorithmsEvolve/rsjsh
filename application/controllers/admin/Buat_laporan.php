@@ -19,30 +19,35 @@ class Buat_laporan extends CI_Controller
   function bangunan()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $data['notif'] = $this->komentar_model->get_notif();
     $this->load->view('admin/form_laporan_bangunan_v', $data);
   }
 
   function furnitur()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $data['notif'] = $this->komentar_model->get_notif();
     $this->load->view('admin/form_laporan_furnitur_v', $data);
   }
 
   function air()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $data['notif'] = $this->komentar_model->get_notif();
     $this->load->view('admin/form_laporan_air_v', $data);
   }
 
   function listrik()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $data['notif'] = $this->komentar_model->get_notif();
     $this->load->view('admin/form_laporan_listrik_v', $data);
   }
 
   function peralatan()
   {
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
+    $data['notif'] = $this->komentar_model->get_notif();
     $this->load->view('admin/form_laporan_peralatan_v', $data);
   }
 

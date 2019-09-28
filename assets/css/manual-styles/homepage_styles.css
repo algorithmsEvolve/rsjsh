@@ -1,0 +1,43 @@
+/* .card:hover {
+	transform: scale(1.5, 1.25);
+	-moz-transform: scale(1.5, 1.25);
+	-ms-transform: scale(1.5, 1.25);
+	-webkit-transform: scale(1.5, 1.25);
+	-o-transform: scale(1.5, 1.25);
+}
+
+.card:hover {
+	-moz-box-shadow: 5px 5px 5px #888;
+	-webkit-box-shadow: 5px 5px 5px #888;
+	box-shadow: 5px 5px 5px #888;
+} */
+
+.card1:hover{
+    width: 300px;
+    /* This is 52px total. 1/2 of that is for top and the other half is for bottom. */
+    height: 400px;
+    /* Below we are not using -26px for margin-top because .box has 6px border and 10px margin. */
+    /* That 16px is then divide by 2 since it's for both top and bottom, or 8px per side. */
+    /* Having said that, 26px - 8px is 18px. We need negative value to position it correctly. */
+    margin-top: -18px;
+   -moz-box-shadow:    0 0 50px red;
+   -webkit-box-shadow: 0 0 50px red;
+   box-shadow:         0 0 50px red;
+}
+
+.card2:hover{
+    width: 300px;
+    /* This is 52px total. 1/2 of that is for top and the other half is for bottom. */
+    height: 400px;
+    /* Below we are not using -26px for margin-top because .box has 6px border and 10px margin. */
+    /* That 16px is then divide by 2 since it's for both top and bottom, or 8px per side. */
+    /* Having said that, 26px - 8px is 18px. We need negative value to position it correctly. */
+    margin-top: -18px;
+   -moz-box-shadow:    0 0 50px blue;
+   -webkit-box-shadow: 0 0 50px blue;
+   box-shadow:         0 0 50px blue;
+}
+
+.login-style {
+    padding: 20px !important;
+}

@@ -20,6 +20,6 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('admin/dashboard_v.php');
+		redirect('admin/dashboard');
 	}
 }

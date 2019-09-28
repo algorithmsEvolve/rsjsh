@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <label class="row">
+        <div class="row">
             <form action="<?php echo base_url('admin/buat_laporan/proses_input_air'); ?>" method="POST" class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
