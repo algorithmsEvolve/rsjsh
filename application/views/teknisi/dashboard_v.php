@@ -25,6 +25,7 @@
                             <h6>: <?php echo $this->session->userdata('nama_user'); ?></h6>
                         </div>
                     </div>
+                    <h5>Teknisi</h5>
                 </div>
 
                 <div class="col s6 right-align">

@@ -22,7 +22,7 @@
         <?php
         $count = 0;
         foreach ($laporan_air->result() as $l1) :
-            if ($count == 0) { ?>
+            if ($count == 0) {if ($this->session->userdata('id_user') == $l1->nip_teknisi) { ?>
                 <div class="row">
                     <div class="col s4 m4">
                         <div class="card z-depth-4 red darken-2 white-text">
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                 <?php $count++;
-                    } elseif ($count == 3) { ?>
+                    }} elseif ($count == 3) {if ($this->session->userdata('id_user') == $l1->nip_teknisi) { ?>
 
                     <div class="col s4 m4">
                         <div class="card z-depth-4 red darken-2 white-text">
@@ -69,8 +69,8 @@
                     </div>
                 </div>
             <?php $count = 0;
-                } else { ?>
-                <<div class="col s4 m4">
+                }} else {if ($this->session->userdata('id_user') == $l1->nip_teknisi) { ?>
+                <div class="col s4 m4">
                     <div class="card z-depth-4 red darken-2 white-text">
                         <div class="card-image waves-effect waves-block waves-light">
                             <a href="<?php echo base_url('teknisi/laporan/show_laporan?jenis_laporan=laporan_air&&id=' . $l1->nomor_laporan) ?>" class="white-text">
@@ -90,7 +90,7 @@
                         </div>
                     </div>
     </div>
-<?php } ?>
+<?php }} ?>
 
 <?php endforeach; ?>
 <!-- end laporan air -->
@@ -99,7 +99,7 @@
 <?php
 $count = 0;
 foreach ($laporan_bangunan->result() as $l1) :
-    if ($count == 0) { ?>
+    if ($count == 0) {if ($this->session->userdata('id_user') == $l1->nip_teknisi) { ?>
         <div class="row">
             <div class="col s4 m4">
                 <div class="card z-depth-4 green white-text">
@@ -122,7 +122,7 @@ foreach ($laporan_bangunan->result() as $l1) :
                 </div>
             </div>
         <?php $count++;
-            } elseif ($count == 4) { ?>
+            }} elseif ($count == 4) {if ($this->session->userdata('id_user') == $l1->nip_teknisi) { ?>
 
             <div class="col s4 m4">
                 <div class="card z-depth-4 green white-text">
@@ -146,7 +146,7 @@ foreach ($laporan_bangunan->result() as $l1) :
             </div>
         </div>
     <?php $count = 0;
-        } else { ?>
+        }} else {if ($this->session->userdata('id_user') == $l1->nip_teknisi) { ?>
         <div class="col s4 m4">
             <div class="card z-depth-4 green white-text">
                 <div class="card-image waves-effect waves-block waves-light">
@@ -167,7 +167,7 @@ foreach ($laporan_bangunan->result() as $l1) :
                 </div>
             </div>
         </div>
-    <?php } ?>
+    <?php }} ?>
 
 <?php endforeach; ?>
 <!-- end laporan bangunan -->
@@ -176,7 +176,7 @@ foreach ($laporan_bangunan->result() as $l1) :
 <?php
 $count = 0;
 foreach ($laporan_furnitur->result() as $l1) :
-    if ($count == 0) { ?>
+    if ($count == 0) {if ($this->session->userdata('id_user') == $l1->nip_teknisi) { ?>
         <div class="row">
             <div class="col s4 m4">
                 <div class="card z-depth-4 yellow black-text">
@@ -199,7 +199,7 @@ foreach ($laporan_furnitur->result() as $l1) :
                 </div>
             </div>
         <?php $count++;
-            } elseif ($count == 4) { ?>
+            }} elseif ($count == 4) {if ($this->session->userdata('id_user') == $l1->nip_teknisi) { ?>
 
             <div class="col s4 m4">
                 <div class="card z-depth-4 yellow black-text">
@@ -223,7 +223,7 @@ foreach ($laporan_furnitur->result() as $l1) :
             </div>
         </div>
     <?php $count = 0;
-        } else { ?>
+        }} else {if ($this->session->userdata('id_user') == $l1->nip_teknisi) { ?>
         <div class="col s4 m4">
             <div class="card z-depth-4 yellow black-text">
                 <div class="card-image waves-effect waves-block waves-light">
@@ -244,7 +244,7 @@ foreach ($laporan_furnitur->result() as $l1) :
                 </div>
             </div>
         </div>
-    <?php } ?>
+    <?php }} ?>
 
 <?php endforeach; ?>
 <!-- end laporan furnitur -->
@@ -253,7 +253,7 @@ foreach ($laporan_furnitur->result() as $l1) :
 <?php
 $count = 0;
 foreach ($laporan_listrik->result() as $l1) :
-    if ($count == 0) { ?>
+    if ($count == 0) {if ($this->session->userdata('id_user') == $l1->nip_teknisi) { ?>
         <div class="row">
             <div class="col s4 m4">
                 <div class="card z-depth-4 blue white-text">
@@ -276,7 +276,7 @@ foreach ($laporan_listrik->result() as $l1) :
                 </div>
             </div>
         <?php $count++;
-            } elseif ($count == 4) { ?>
+            }} elseif ($count == 4) {if ($this->session->userdata('id_user') == $l1->nip_teknisi) { ?>
 
             <div class="col s4 m4">
                 <div class="card z-depth-4 blue white-text">
@@ -300,7 +300,7 @@ foreach ($laporan_listrik->result() as $l1) :
             </div>
         </div>
     <?php $count = 0;
-        } else { ?>
+        }} else {if ($this->session->userdata('id_user') == $l1->nip_teknisi) { ?>
         <div class="col s4 m4">
             <div class="card z-depth-4 blue white-text">
                 <div class="card-image waves-effect waves-block waves-light">
@@ -321,7 +321,7 @@ foreach ($laporan_listrik->result() as $l1) :
                 </div>
             </div>
         </div>
-    <?php } ?>
+    <?php }} ?>
 
 <?php endforeach; ?>
 <!-- end laporan listrik -->

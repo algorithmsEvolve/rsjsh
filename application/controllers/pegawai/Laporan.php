@@ -89,6 +89,7 @@ class Laporan extends CI_Controller
 
   function show_laporan()
   {
+    $data['data_user'] = $this->user_model->get_user();
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
     $data['notif'] = $this->komentar_model->get_notif();
     $nomor_laporan = $this->input->get('id');
@@ -100,6 +101,7 @@ class Laporan extends CI_Controller
 
   function show_laporan_and_read()
   {
+    $data['data_user'] = $this->user_model->get_user();
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
     $data['notif'] = $this->komentar_model->get_notif();
     $nomor_laporan = $this->input->get('id');

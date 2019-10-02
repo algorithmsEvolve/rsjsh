@@ -129,11 +129,23 @@ class Laporan_model extends CI_Model
     return $result;
   }
 
-  function update_status($nomor_laporan, $jenis_laporan, $status_laporan, $id_teknisi)
+  function update_status($nomor_laporan, $jenis_laporan, $status_laporan, $id_teknisi, $barang_yang_diganti)
   {
     $data = array(
       'status' => $status_laporan,
-      'nip_teknisi' => $id_teknisi
+      'nip_teknisi' => $id_teknisi,
+      'barang_yang_diganti' => $barang_yang_diganti
+    );
+    $this->db->where('nomor_laporan', $nomor_laporan);
+    $this->db->update($jenis_laporan, $data);
+  }
+
+  function update_status_selesai($nomor_laporan, $jenis_laporan, $status_laporan, $id_teknisi, $barang_yang_diganti)
+  {
+    $data = array(
+      'status' => $status_laporan,
+      'nip_teknisi' => $id_teknisi,
+      'barang_yang_diganti' => $barang_yang_diganti
     );
     $this->db->where('nomor_laporan', $nomor_laporan);
     $this->db->update($jenis_laporan, $data);

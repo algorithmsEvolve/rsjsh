@@ -16,7 +16,7 @@ class User_model extends CI_Model {
     return $result;
   }
 
-  function input($nip, $nama_user, $divisi, $ruangan, $instalasi, $password)
+  function input_pegawai($nip, $nama_user, $divisi, $ruangan, $instalasi, $password)
   {
     $data = array(
       'NIP' => $nip,
@@ -24,6 +24,17 @@ class User_model extends CI_Model {
       'divisi' => $divisi,
       'ruangan' => $ruangan,
       'instalasi' => $instalasi,
+      'password' => $password
+    );
+    $this->db->insert('user', $data);
+  }
+
+  function input_teknisi($nip, $nama_user, $divisi, $password)
+  {
+    $data = array(
+      'NIP' => $nip,
+      'nama_user' => $nama_user,
+      'divisi' => $divisi,
       'password' => $password
     );
     $this->db->insert('user', $data);

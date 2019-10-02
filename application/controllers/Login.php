@@ -75,7 +75,13 @@ class Login extends CI_Controller
       $instalasi = $this->input->post('instalasi');
     }
     $password = $this->input->post('password');
-    $this->user_model->input($nip, $nama_user, $divisi, $ruangan, $instalasi, $password);
+    if($divisi == "pegawai"){
+      $this->user_model->_pegawai($nip, $nama_user, $divisi, $ruangan, $instalasi, $password);
+    }
+    if($divisi == "teknisi"){
+      $this->user_model->input_teknisi($nip, $nama_user, $divisi, $password);
+    }
+    
     redirect('login?divisi='.$divisi);
 
   }

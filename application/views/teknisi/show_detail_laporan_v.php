@@ -16,56 +16,76 @@
         <div class="section">
             <div class="row">
                 <div class="col s10">
-                    <div class="col s3">
+                    <div class="col s4">
                         <?php foreach ($laporan->result() as $l) : ?>
                             <h6><b>Nomor Laporan </b></h6>
                     </div>
-                    <div class="col s9">
+                    <div class="col s8">
                         <h6> <b>: <?php echo $l->nomor_laporan; ?> </b> </h6>
                     </div>
 
-                    <div class="col s3">
+                    <div class="col s4">
                         <h6>Ruangan</h6>
                     </div>
-                    <div class="col s9">
+                    <div class="col s8">
                         <h6>: <?php echo $l->ruangan; ?></h6>
                     </div>
 
-                    <div class="col s3">
+                    <div class="col s4">
                         <h6>Bagian</h6>
                     </div>
-                    <div class="col s9">
+                    <div class="col s8">
                         <h6>: <?php echo $l->bagian; ?></h6>
                     </div>
 
-                    <div class="col s3">
+                    <div class="col s4">
                         <h6>Nama Pelapor</h6>
                     </div>
-                    <div class="col s9">
+                    <div class="col s8">
                         <h6>: <?php echo $l->pelapor; ?></h6>
                     </div>
 
-                    <div class="col s3">
+                    <div class="col s4">
                         <h6>Tanggal Lapor</h6>
                     </div>
-                    <div class="col s9">
+                    <div class="col s8">
                         <h6>: <?php echo $l->tanggal; ?></h6>
                     </div>
 
-                    <div class="col s3">
+                    <div class="col s4">
                         <h6>Status</h6>
                     </div>
-                    <div class="col s9">
+                    <div class="col s8">
                         <h6>: <?php echo $l->status;
                                     $status_laporan = $l->status; ?></h6>
                     </div>
 
-                    <div class="col s3">
+                    <div class="col s4">
                         <h6><b> Keterangan</b></h6>
                     </div>
-                    <div class="col s9">
+                    <div class="col s8">
                         <h6> <b>: <?php echo $l->tambahan; ?></b></h6>
                     </div>
+                    <?php if ($status_laporan == "Selesai" && $l->barang_yang_diganti != "") : ?>
+                        <div class="col s4">
+                            <h6><b>Barang yang diganti</b></h6>
+                        </div>
+                        <div class="col s8">
+                            <h6>: <?php echo $l->barang_yang_diganti; ?></h6>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ($status_laporan == "Selesai" || $status_laporan == "Sedang Dikerjakan") : ?>
+                        <div class="col s4">
+                            <h6><b>Dikerjakan Oleh</b></h6>
+                        </div>
+                        <div class="col s8">
+                            <?php foreach ($data_user->result() as $du) : if ($du->NIP == $l->nip_teknisi) : ?>
+                                    <h6>: <?php echo $du->nama_user . " (" . $l->nip_teknisi . ")"; ?></h6>
+                            <?php endif;
+                                    endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                 <?php
                     $nomor_laporan = $l->nomor_laporan;
                     $pelapor = $l->pelapor;
@@ -74,10 +94,34 @@
 
                 <div class="col s2">
                     <?php if ($status_laporan == "Menunggu Konfirmasi") : ?>
-                        <li style="list-style-type: none"><a class="dropdown-trigger btn waves-effect waves-light bold-font" href="<?php echo base_url('teknisi/laporan/update_status?id_teknisi='.$this->session->userdata('id_user').'&&status_laporan=Sedang Dikerjakan&&nomor_laporan='.$nomor_laporan); ?>" data-target="tangani_DD">Kerjakan</a></li>
+                        <li style="list-style-type: none"><a class="dropdown-trigger btn waves-effect waves-light bold-font" href="<?php echo base_url('teknisi/laporan/update_status?id_teknisi=' . $this->session->userdata('id_user') . '&&status_laporan=Sedang Dikerjakan&&nomor_laporan=' . $nomor_laporan); ?>" data-target="tangani_DD">Kerjakan</a></li>
                     <?php endif; ?>
                     <?php if ($status_laporan == "Sedang Dikerjakan") : ?>
-                        <li style="list-style-type: none"><a class="dropdown-trigger btn waves-effect waves-light bold-font" href="<?php echo base_url('teknisi/laporan/update_status?id_teknisi='.$this->session->userdata('id_user').'&&status_laporan=Selesai&&nomor_laporan='.$nomor_laporan); ?>" data-target="tangani_DD">Selesai</a></li>
+                        <!-- Modal Structure -->
+                        <div id="barang_yang_diganti" class="modal">
+                            <div class="modal-content">
+                                <form action="<?php echo base_url('teknisi/laporan/update_status_selesai?id_teknisi=' . $this->session->userdata('id_user') . '&&status_laporan=Selesai&&nomor_laporan=' . $nomor_laporan); ?>" method="post">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <h6>Barang yang diganti :</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">mode_edit</i>
+                                            <textarea id="icon_prefix2" class="materialize-textarea" name="barang_yang_diganti"></textarea>
+                                            <label for="icon_prefix2">Tambahan..</label>
+                                        </div>
+                                    </div>
+                                    <button class="btn waves-effect waves-light" type="submit" name="action">Selesai
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <a class="waves-effect waves-light btn modal-trigger" href="#barang_yang_diganti">Selesai</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -124,7 +168,7 @@
                             <input type="text" name="pelapor" value="<?php echo $this->session->userdata('nama_user'); ?>" hidden>
                             <input type="text" name="jenis_laporan" value="<?php echo $this->input->get('jenis_laporan'); ?>" hidden>
                             <i class="material-icons prefix">mode_edit</i>
-                            <textarea id="icon_prefix2" class="materialize-textarea" name="komentar"></textarea>
+                            <textarea id="icon_prefix2" class="materialize-textarea" name="komentar" required></textarea>
                             <label for="icon_prefix2">Tulis Komentar..</label>
                         </div>
                     </div>
@@ -140,6 +184,11 @@
 
     <!-- js -->
     <?php $this->load->view('teknisi/partials/js.php') ?>
+    <script>
+        $(document).ready(function() {
+            $('.modal').modal();
+        });
+    </script>
 </body>
 
 </html>

@@ -73,7 +73,7 @@
                     </div>
                 <?php $count = 0;
                     } else { ?>
-                    <<div class="col s4 m4">
+                    <div class="col s4 m4">
                         <div class="card z-depth-4 red darken-2 white-text">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <a href="<?php echo base_url('pegawai/laporan/show_laporan?jenis_laporan=laporan_air&&id=' . $l1->nomor_laporan) ?>" class="white-text">
@@ -467,7 +467,7 @@ foreach ($laporan_peralatan_sd->result() as $l1) :
                 </div>
             <?php $count = 0;
                 } else { ?>
-                <<div class="col s4 m4">
+            <div class="col s4 m4">
                     <div class="card z-depth-4 red darken-2 white-text">
                         <div class="card-image waves-effect waves-block waves-light">
                             <a href="<?php echo base_url('pegawai/laporan/show_laporan?jenis_laporan=laporan_air&&id=' . $l1->nomor_laporan) ?>" class="white-text">
@@ -863,7 +863,7 @@ foreach ($laporan_peralatan_mk->result() as $l1) :
             </div>
         <?php $count = 0;
             } else { ?>
-            <<div class="col s4 m4">
+            <div class="col s4 m4">
                 <div class="card z-depth-4 red darken-2 white-text">
                     <div class="card-image waves-effect waves-block waves-light">
                         <a href="<?php echo base_url('pegawai/laporan/show_laporan?jenis_laporan=laporan_air&&id=' . $l1->nomor_laporan) ?>" class="white-text">

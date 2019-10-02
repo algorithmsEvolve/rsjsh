@@ -112,7 +112,7 @@
                             <input type="text" name="pelapor" value="<?php echo $this->session->userdata('nama_user'); ?>" hidden>
                             <input type="text" name="jenis_laporan" value="<?php echo $this->input->get('jenis_laporan'); ?>" hidden>
                             <i class="material-icons prefix">mode_edit</i>
-                            <textarea id="icon_prefix2" class="materialize-textarea" name="komentar"></textarea>
+                            <textarea id="icon_prefix2" class="materialize-textarea" name="komentar" required></textarea>
                             <label for="icon_prefix2">Tulis Komentar..</label>
                         </div>
                     </div>

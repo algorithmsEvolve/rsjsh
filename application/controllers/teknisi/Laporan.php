@@ -12,6 +12,8 @@ class Laporan extends CI_Controller
     }
     $this->load->model('laporan_model');
     $this->load->model('komentar_model');
+    $this->load->model('user_model');
+    
   }
 
   function show_laporan_mk()
@@ -89,6 +91,7 @@ class Laporan extends CI_Controller
 
   function show_laporan()
   {
+    $data['data_user'] = $this->user_model->get_user();
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
     $data['notif'] = $this->komentar_model->get_notif();
     $nomor_laporan = $this->input->get('id');
@@ -100,6 +103,7 @@ class Laporan extends CI_Controller
 
   function show_laporan_and_read()
   {
+    $data['data_user'] = $this->user_model->get_user();
     $data['new_msg'] = $this->komentar_model->jumlah_komentar_0();
     $data['notif'] = $this->komentar_model->get_notif();
     $nomor_laporan = $this->input->get('id');
@@ -131,7 +135,7 @@ class Laporan extends CI_Controller
     }
     $id_komentar = 'K-' . $nomor_laporan . "-" . $index;
 
-    $this->laporan_model->input($id_komentar, $id_user, $pelapor, $divisi_user, $tanggal, $komentar, $nomor_laporan);
+    $this->komentar_model->input($id_komentar, $id_user, $pelapor, $divisi_user, $tanggal, $komentar, $nomor_laporan);
     redirect('teknisi/laporan/show_laporan?id=' . $nomor_laporan . '&&jenis_laporan=' . $jenis_laporan);
   }
 
@@ -139,6 +143,7 @@ class Laporan extends CI_Controller
     $id_teknisi = $this->input->get('id_teknisi');
     $status_laporan = $this->input->get('status_laporan');
     $nomor_laporan = $this->input->get('nomor_laporan');
+    $barang_yang_diganti = "";
     $jenis_laporan = substr($nomor_laporan, 2, 1);
 
                                                 if ($jenis_laporan == 'l') {
@@ -153,6 +158,28 @@ class Laporan extends CI_Controller
                                                     $jenis_laporan = 'laporan_peralatan';
                                                 } 
     $this->laporan_model->update_status($nomor_laporan, $jenis_laporan, $status_laporan, $id_teknisi);
+    redirect('teknisi/laporan/show_laporan?id=' . $nomor_laporan . '&&jenis_laporan=' . $jenis_laporan);
+  }
+
+  function update_status_selesai(){
+    $id_teknisi = $this->input->get('id_teknisi');
+    $status_laporan = $this->input->get('status_laporan');
+    $nomor_laporan = $this->input->get('nomor_laporan');
+    $barang_yang_diganti = $this->input->post('barang_yang_diganti');
+    $jenis_laporan = substr($nomor_laporan, 2, 1);
+
+                                                if ($jenis_laporan == 'l') {
+                                                    $jenis_laporan = 'laporan_listrik';
+                                                } elseif ($jenis_laporan == 'f') {
+                                                    $jenis_laporan = 'laporan_furnitur';
+                                                } elseif ($jenis_laporan == 'b') {
+                                                    $jenis_laporan = 'laporan_bangunan';
+                                                } elseif ($jenis_laporan == 'a') {
+                                                    $jenis_laporan = 'laporan_air';
+                                                } elseif ($jenis_laporan == 'p') {
+                                                    $jenis_laporan = 'laporan_peralatan';
+                                                } 
+    $this->laporan_model->update_status_selesai($nomor_laporan, $jenis_laporan, $status_laporan, $id_teknisi, $barang_yang_diganti);
     redirect('teknisi/laporan/show_laporan?id=' . $nomor_laporan . '&&jenis_laporan=' . $jenis_laporan);
   }
 
