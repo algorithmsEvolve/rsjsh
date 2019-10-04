@@ -12,6 +12,7 @@ class Login extends CI_Controller
 
   public function index()
   {
+    $data['daftar'] = $this->input->get('daftar');
     $data['divisi'] = $this->input->get('divisi');
     $this->load->view('login_page_v.php', $data);
   }
@@ -76,13 +77,13 @@ class Login extends CI_Controller
     }
     $password = $this->input->post('password');
     if($divisi == "pegawai"){
-      $this->user_model->_pegawai($nip, $nama_user, $divisi, $ruangan, $instalasi, $password);
+      $this->user_model->input_pegawai($nip, $nama_user, $divisi, $ruangan, $instalasi, $password);
     }
     if($divisi == "teknisi"){
       $this->user_model->input_teknisi($nip, $nama_user, $divisi, $password);
     }
     
-    redirect('login?divisi='.$divisi);
+    redirect('login?divisi='.$divisi.'&&daftar=1');
 
   }
 }

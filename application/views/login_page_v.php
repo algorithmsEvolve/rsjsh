@@ -36,7 +36,7 @@
                             <div class="row">
                                 <div class="col s12">
                                     <label>
-                                        <input type="checkbox" onclick="showPass()"/>
+                                        <input type="checkbox" onclick="showPass()" />
                                         <span>Show Password</span>
                                     </label>
                                 </div>
@@ -59,6 +59,21 @@
             </div>
         </div>
     </div>
+
+    <?php
+    if ($daftar == 1) : ?>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Akun Berhasil Di Daftarkan!</h4>
+                <p>Silahkan login.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
     <!-- js -->
     <?php $this->load->view('partials/js.php') ?>
     <script>
@@ -70,6 +85,12 @@
                 x.type = "password";
             }
         }
+        <?php if ($daftar == 1) : ?>
+            $(document).ready(function() {
+                $('#modal1').modal();
+                $('#modal1').modal('open');
+            });
+        <?php endif; ?>
     </script>
 </body>
 

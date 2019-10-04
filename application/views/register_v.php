@@ -23,40 +23,34 @@
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input type="text" name="divisi" value="<?php echo $divisi; ?>" hidden>
-                                    <input id="nip" type="number" class="validate" name="nip">
+                                    <input id="nip" type="number" class="validate" name="nip" required>
                                     <label for="nip">NIP (Nomor Induk Pegawai)</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="nama" type="text" class="validate" name="nama">
+                                    <input id="nama" type="text" class="validate" name="nama" required>
                                     <label for="nama">Nama</label>
                                 </div>
                             </div>
                             <?php if ($divisi == "pegawai") : ?>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="ruangan" type="text" class="validate" name="ruangan">
+                                        <input id="ruangan" type="text" class="validate" name="ruangan" required>
                                         <label for="ruangan">Ruangan</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="instalasi" type="text" class="validate" name="instalasi">
+                                        <input id="instalasi" type="text" class="validate" name="instalasi" required>
                                         <label for="instalasi">Instalasi</label>
                                     </div>
                                 </div>
                             <?php endif; ?>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="password" type="password" class="validate" name="password">
+                                    <input id="password" type="password" class="validate" name="password" required>
                                     <label for="password">Password</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input id="re-password" type="password" class="validate" name="re-password">
-                                    <label for="re-password">Masukkan Kembali Password</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -83,7 +77,7 @@
     <?php $this->load->view('partials/js.php') ?>
     <script>
         function showPass() {
-            var x = document.getElementById("re-password");
+            var x = document.getElementById("password");
             if (x.type === "password") {
                 x.type = "text";
             } else {

@@ -12,6 +12,8 @@ class Laporan extends CI_Controller
     }
     $this->load->model('laporan_model');
     $this->load->model('komentar_model');
+    $this->load->model('user_model');
+    
   }
 
   function show_laporan_mk()
