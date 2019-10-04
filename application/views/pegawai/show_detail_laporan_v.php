@@ -15,59 +15,80 @@
     <div class="container">
         <div class="section">
             <div class="row">
-                <div class="col s3">
+                <div class="col s4">
                     <?php foreach ($laporan->result() as $l) : ?>
                         <h6><b>Nomor Laporan </b></h6>
                 </div>
-                <div class="col s9">
+                <div class="col s8">
                     <h6> <b>: <?php echo $l->nomor_laporan; ?> </b> </h6>
                 </div>
 
-                <div class="col s3">
+                <div class="col s4">
                     <h6>Ruangan</h6>
                 </div>
-                <div class="col s9">
+                <div class="col s8">
                     <h6>: <?php echo $l->ruangan; ?></h6>
                 </div>
 
-                <div class="col s3">
+                <div class="col s4">
                     <h6>Bagian</h6>
                 </div>
-                <div class="col s9">
+                <div class="col s8">
                     <h6>: <?php echo $l->bagian; ?></h6>
                 </div>
 
-                <div class="col s3">
+                <div class="col s4">
                     <h6>Nama Pelapor</h6>
                 </div>
-                <div class="col s9">
+                <div class="col s8">
                     <h6>: <?php echo $l->pelapor; ?></h6>
                 </div>
 
-                <div class="col s3">
+                <div class="col s4">
                     <h6>Tanggal Lapor</h6>
                 </div>
-                <div class="col s9">
+                <div class="col s8">
                     <h6>: <?php echo $l->tanggal; ?></h6>
                 </div>
 
-                <div class="col s3">
+                <div class="col s4">
                     <h6>Status</h6>
                 </div>
-                <div class="col s9">
-                    <h6>: <?php echo $l->status; ?></h6>
+                <div class="col s8">
+                    <h6>: <?php echo $l->status;
+                                $status_laporan = $l->status; ?></h6>
                 </div>
 
-                <div class="col s3">
+                <div class="col s4">
                     <h6><b> Keterangan</b></h6>
                 </div>
-                <div class="col s9">
+                <div class="col s8">
                     <h6> <b>: <?php echo $l->tambahan; ?></b></h6>
                 </div>
-            <?php 
-        $nomor_laporan = $l->nomor_laporan;
-        $pelapor = $l->pelapor;
-        endforeach; ?>
+                <?php if ($status_laporan == "Selesai" && $l->barang_yang_diganti != "") : ?>
+                    <div class="col s4">
+                        <h6><b>Barang yang diganti</b></h6>
+                    </div>
+                    <div class="col s8">
+                        <h6>: <?php echo $l->barang_yang_diganti; ?></h6>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($status_laporan == "Selesai" || $status_laporan == "Sedang Dikerjakan") : ?>
+                    <div class="col s4">
+                        <h6><b>Dikerjakan Oleh</b></h6>
+                    </div>
+                    <div class="col s8">
+                        <?php foreach ($data_user->result() as $du) : if ($du->NIP == $l->nip_teknisi) : ?>
+                                <h6>: <?php echo $du->nama_user . " (" . $l->nip_teknisi . ")"; ?></h6>
+                        <?php endif;
+                                endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            <?php
+                $nomor_laporan = $l->nomor_laporan;
+                $pelapor = $l->pelapor;
+            endforeach; ?>
             </div>
         </div>
 

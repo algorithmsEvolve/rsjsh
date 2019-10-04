@@ -27,7 +27,7 @@ class Laporan extends CI_Controller
     $data['laporan_furnitur'] = $this->laporan_model->get_laporan_furnitur($parameter);
     $data['laporan_listrik'] = $this->laporan_model->get_laporan_listrik($parameter);
     $data['laporan_peralatan'] = $this->laporan_model->get_laporan_peralatan($parameter);
-    $this->load->view('teknisi/show_laporan_v.php', $data);
+    $this->load->view('teknisi/show_laporan_other_v.php', $data);
   }
 
   function show_laporan_dk()
@@ -55,7 +55,7 @@ class Laporan extends CI_Controller
     $data['laporan_furnitur'] = $this->laporan_model->get_laporan_furnitur($parameter);
     $data['laporan_listrik'] = $this->laporan_model->get_laporan_listrik($parameter);
     $data['laporan_peralatan'] = $this->laporan_model->get_laporan_peralatan($parameter);
-    $this->load->view('teknisi/show_laporan_v.php', $data);
+    $this->load->view('teknisi/show_laporan_other_v.php', $data);
   }
 
   function show_laporan_semua()
@@ -143,7 +143,6 @@ class Laporan extends CI_Controller
     $id_teknisi = $this->input->get('id_teknisi');
     $status_laporan = $this->input->get('status_laporan');
     $nomor_laporan = $this->input->get('nomor_laporan');
-    $barang_yang_diganti = "";
     $jenis_laporan = substr($nomor_laporan, 2, 1);
 
                                                 if ($jenis_laporan == 'l') {
